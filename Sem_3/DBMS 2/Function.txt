@@ -1,0 +1,315 @@
+Husain Trivedi 202300319010105	
+String:
+1. Display length of name and city of each employee.
+mysql> select length(name) ,length(address) from emplo;
+
+2. Change name of city to lower case using two ways.
+mysql> select ucase(name) from emplo;
+
+mysql> select upper(name) from emplo;
+
+3. Change name of city. to upper case using two ways
+mysql> select lower(name) from emplo;
+mysql> select lcase(name) from emplo;
+
+4. Extract first four characters from each name
+mysql> select substr(name,-4,4) from emplo;
+
+6. Extract four characters of each name from 2nd position using substr 
+function.
+mysql> select substr(name,2) from emplo;
+
+7. Dispaly the name and city in one column..
+mysql> select concat(name," ",address) from emplo;
+
+8. Replace the "ana" with "aa" in the name column
+mysql> select replace(name,"ana","aa") from emplo;
+
+9. Display the city and name in reverse order.
+mysql> select reverse(address),reverse(name) from emplo;
+
+10. Display the ASCII value of name.
+mysql> select ascii(name) from emplo;
+6 rows in set (0.00 sec)
+
+
+11. Display the first occurance "a" in the name column.
+mysql> select * from emplo where name like "a%";
+
+12. Display the details of employee in ascesnding order acording to name.
+mysql> select * from emplo order by name asc;
+
+13. Display the details of employee in descending order acording to city.
+mysql> select * from emplo order by address desc;
+
+MATH::
+
+1. Display the maximum, minimum, average, total of the salary from employee table.
+mysql> select max(salary),min(salary),avg(salary),sum(salary) from emplo;
+
+2. Display the mod of the age.	
+mysql> select mod(age,10.) from emplo;
+
+Display the salary with the increment of power 2.
+mysql> select salary*2 from emplo;
+Date:
+
+Display duration in days for which employce has worked.
+mysql> select dateDiff(curdate(),join_date) from emplo;
+
+2. Display Eid, name, joinddate and abbreviated week day name of each joindate.
+mysql> select e_id,name,join_date,date_format(join_date,'%W') from emplo
+;
+
+3. Display Eid, Ename, joinddate and abbreviated full and half month name of each joindate.
+mysql> select e_id,name,join_date,date_format(join_date,'%b') from emplo
+;
+
+4. Display the details of the employee whose joining year is greater than 2010.
+mysql> select * from emplo where year(join_date)>2010;
+
+5. Display the date and time from the system.
+mysql> select curdate();
+
+TASK 2 :
+UNIVERSITY DATABASE
+1.List the details of student table.
+mysql> select * from students;
+
+2.List the details of the professor in the ascending order.
+mysql> select * from professors order by professorid  asc;
+
+3.List the distinct firstnames of the students in the descending order.
+mysql> select distinct  first_name from professors order by First_name 
+desc;
+List the character of ASCII=97
+mysql> select ascii('a');
+
+Display the ascii values of the firstname of the students.
+mysql> select ascii(first_name) from students;
+
+Display by adding 3 columns into one address column;
+mysql> select concat(Student_id," ",First_name," ",Last_name," ",address) 
+from students;
+
+Search for the letter ‘I’ in the first nameof the student;
+mysql> select position('I' in first_name) from students;
+
+Insert the string “.co.in” into the email column of the professor.Replace the lastv three characters.
+mysql> select replace(email,"com","co.in") from students;
+
+Display the details of the students by replacing “Bombay” to “Limbdi” in the city column
+mysql> select replace(city,'Limbdi','Bombay') from students;
+Display the name of the professor in the reverse
+mysql> select reverse(last_name) from professors;
+
+Displlay the professor name in the reverse.
+mysql> select ucase(First_name) from professors;
+
+Desplay the email  in the lowercasr.
+mysql> select lcase(email) from professors;
+
+Display the length of the  email from professor
+mysql> select length(first_name) from professors;
+
+Display the city name thrice from the student table.	
+mysql> select repeat(city,3) from students;
+
+ 
+Extract and display the 5 characters from the text name in the “firstname” column from(starting from left) the student table;.
+mysql> select substr(first_name,2,5) from professors;
+
+Extract and display the 5 characters from the text name in the “firstname” column from(starting from right) the student table;.
+mysql> select left(first_name,5) from professors;
+name,5) from professors;
+
+Display the average  of marks from the student where studentid=1.
+mysql> select avg(marks) from marksheet where studentid=1;
+
+display the sum of the marks from the student where studentid=3.
+mysql> select sum(marks) from marksheet where studentid=3;
+
+display the roundup of marks where studentid=2.
+mysql> select ceil(avg(marks)) from marksheet where studentid=2;
+
+display the rounddown of marks where studentid=3.
+mysql> select floor(avg(marks)) from marksheet where studentid=3;
+display the maximum of the marks where studentid=3.
+mysql> select max(marks) from marksheet where studentid=3;
+
+
+display the minimum marks from th student where studentid=1.
+mysql> select min(marks) from marksheet where studentid=1;
+
+display the modulo of the marks.
+mysql> select mod(marks,10) from marksheet;
+	
+Display the power of the marks.
+mysql> select pow(marks,2) from marksheet;
+
+Display the date of birth in DD-MM-yy format.
+mysql> select day(dateofbirth),month(dateofbirth),year(dateofbirth) from students;
+Display the  current date and time.
+mysql> select sysdate();
+
+3. Display the Name and age of the student.
+mysql> select First_name,Last_name,TIMESTAMPdiff(YEAR,dateofbirth,CURDATE()) from students;
+
+4. Display character of ASCII = 97.
+mysql> SELECT ASCII('a');
+
+5. Display the round of 333.44567 till 3 positions.
+mysql> select round(333.44567,3);
+
+6. Display the least & greatest number out of 3456,6789,9876,5432.
+mysql> select least(3456,6789,9876,5432);
+
+6. Display the least & greatest number out of 3456,6789,9876,5432.
+mysql> select greatest(3456,6789,9876,5432);
+
+7. Display the sine and cosine of 4.7.
+mysql> select sin(4.7);
+
+mysql> select cos(4.7);
+
+8. Display the value of PI through the math function.
+mysql> select pi();
+Husain Trivedi 202300319010105	
+
+9. Add 15 minutes to a date and return the date.
+
+ysql> select date_add('1979-5-8',INTErVAL 15 Minute);
+10. Add 15 DAYS to DATE OF BIRTH and return the date.
+mysql> select date_add(dateofbirth,INTErVAL 15 day) from students;
+
+12. Return the day of the month for a date: 2017-06-15.
+mysql> select date_format('2017-6-15','%W');
+
+
+
+13. Return the day of the month for the current system date.
+mysql> select date_format(curdate(),'%W');
+
+TASK 3:
+Airline database
+
+
+List the details of Flights table
+mysql> select * from flights;
+
+Increase the prices by 50 percent in the Flight Table of all Rows.
+ysql> select price*2 from flights;
+
+Display the details of Flight from "Chennai"
+sql> select * from flights where from_city="chennai";
+	
+• Delete the rows whose flno is 10 in the Flights table.
+ysql> select * from flights where flno=10;
+
+
+• Display employees whose salary is more than 10,000
+ysql> select * from emp where salary>=10000;
+
+
+ Display the result by Adding three columns "from_city","to_city","distance" into one "Flight details" column.
+
+sql> select concat(from_city," ",to_city," ",distance) as flights_details from flights;
+
+Display the previous result by Extracting 2 characters from the "from city" and "to city" column (starting from left) and instead of distance, add "price" column with "-" separator into one "Price
+List" column.
+mysql> select left(from_city,2),left(to_city,2),concat(price,'-price_list') from flights;
+
+• Display Flightname and price of flights having maximum price out of all flights.
+ysql> select flightname,price from flights where price=(select max(price) from flights)
+    -> ;
+
+• Display details of all the employees.
+mysql> select * from employee;
+
+• Increase salary of all employees by 12% in Employee.
+mysql> update employee set salary=(salary*12)/100;
+Query OK, 5 rows affected (0.01 sec)
+Rows matched: 5  Changed: 5
+
+• Drop the city column.
+mysql> alter table employee drop column city;
+
+ List the details of those employees whose salary is more than 25000.
+mysql> select * from employee where salary>25000;
+
+ Delete the rows where Project status is completed.
+mysql> delete from project where status="completed";
+Query OK, 2 rows affected (0.01 sec)
+
+
+ List the Employee who are in the city 'Bangalore'.
+
+• List the Employee name twice who are in the city 'Ahmedabad'.
+mysql> select * from employee where city="Ahmedabad";
+
+
+• Display firstname of all the employees returning ASCII values.
+mysql> select ascii(First_name) from employee;
+
+mysql> select concat(first_name," ",first_name) from employee where city="Ahmedabad";
+
+Search for the letter O in the first name.
+mysql> select * from employee where first_name like '%o%';
+
+
+• Display details of all the employees returning in uppercase.
+mysql> select ucase(First_name) as firstname,ucase(Lastname) as last_name,ucase(city) as city,emp_id,Hiredate,designo,deptno,salary from employee;
+
+• Display details of all the projects returning in lowercase.
+mysql>  select project_id,lcase(proj_name) as project_name,lcase(city) as city, lcase(status) as status from designation;
+
+ Search for the letter "o" in FirstName.
+mysql> select * from employee where first_name like '%o%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

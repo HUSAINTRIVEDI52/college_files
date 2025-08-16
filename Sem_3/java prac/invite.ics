@@ -1,0 +1,43 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+X-LIC-LOCATION:Asia/Kolkata
+BEGIN:STANDARD
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:GMT+5:30
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Kolkata:20241118T155000
+DTEND;TZID=Asia/Kolkata:20241118T160500
+DTSTAMP:20241118T051508Z
+ORGANIZER;CN=Masai School:mailto:admissions@masaischool.com
+UID:f53gfmcqqk1dl9vksa4d89e1g4@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=Paras Chaturvedi;X-NUM-GUESTS=0:mailto:paras.chaturvedi@masaischool.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=husaintd522@gmail.com;X-NUM-GUESTS=0:mailto:husaintd522@gmail.com
+X-GOOGLE-CONFERENCE:https://meet.google.com/oke-yzso-fzj
+X-MICROSOFT-CDO-OWNERAPPTID:1027832971
+CREATED:20241118T051506Z
+DESCRIPTION:Your counselling session\n\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\nJoin with Google Meet
+ : https://meet.google.com/oke-yzso-fzj\nOr dial: (US) +1 304-896-9105 PIN: 
+ 754649830#\nMore phone numbers: https://tel.meet/oke-yzso-fzj?pin=250826940
+ 3925&hs=7\n\nLearn more about Meet at: https://support.google.com/a/users/a
+ nswer/9282720\n\nPlease do not edit this section.\n-::~:~::~:~:~:~:~:~:~:~:
+ ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-
+LAST-MODIFIED:20241118T051506Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Counselling session
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

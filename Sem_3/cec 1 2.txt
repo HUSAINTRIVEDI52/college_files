@@ -1,0 +1,302 @@
+A ____________ is a data structure that is made up of a finite set of edges and vertices.
+
+a.
+tree
+
+b.
+graph
+
+c.
+stack
+
+d.
+queue
+ChatGPT
+The correct answer is:
+
+b. graph
+
+A graph is a data structure composed of a finite set of edges and vertices. Trees are a special type of graph, and stacks and queues are different types of data structures entirely.
+
+________is an empirical analysis of an algorithm.
+
+a.
+posterior analysis
+
+b.
+priori analysis
+
+c.
+Data analysis
+
+d.
+Structure analysis
+ChatGPT
+The correct answer is:
+
+c. Data analysis
+
+Data analysis involves empirical methods to assess the performance of an algorithm, typically through experimentation and measurement. The other terms provided are not standard names for empirical analysis of algorithms.
+
+________ is theoretical analysis of an algorithm. Efficiency of algorithm is measured by assuming that all other factors.
+
+a.
+Structure analysis
+
+b.
+Data analysis
+
+c.
+posterior analysis
+
+d.
+priori analysis
+ChatGPT
+The correct answer is:
+
+d. priori analysis
+
+A priori analysis involves the theoretical evaluation of an algorithm's efficiency based on mathematical models and assumptions about the algorithm's performance, independent of empirical measurements.
+
+ADT as a black box which hides the inner structure and design of the data type.
+Select one:
+True
+False
+ChatGPT
+True
+
+An Abstract Data Type (ADT) is indeed often described as a "black box" in that it hides the internal structure and implementation details from the user. Instead, it exposes a set of operations that can be performed on the data type. This encapsulation allows users to interact with the ADT through its defined operations without needing to understand or access its underlying implementation.
+
+From below identify which is not a Non-primitive data type?
+
+a.
+graph
+
+b.
+tree
+
+c.
+int
+
+d.
+stack
+ChatGPT
+The correct answer is:
+
+c. int
+
+The int data type is a primitive data type, representing integer values. The other options—graph, tree, and stack—are non-primitive data types, which are more complex structures built using primitive data types.
+
+Stack is said to be _________________ when TOP is at SIZE-1.
+
+a.
+Push
+
+b.
+Overflow
+
+c.
+Pop
+
+d.
+Underflow
+ChatGPT
+The correct answer is:
+
+b. Overflow
+
+A stack is said to be in an overflow condition when it is full, meaning that the TOP index has reached SIZE-1 (the maximum index of the stack). This indicates that no more elements can be pushed onto the stack until some elements are popped off.
+
+Which operation is called insertion in the stack?
+
+a.
+Dequeue
+
+b.
+Enqueue
+
+c.
+Push
+
+d.
+Pop
+ChatGPT
+The correct answer is:
+
+c. Push
+
+In the context of a stack, the operation of inserting an element onto the stack is called push.
+
+_____ is a queue that contains items that have some preset priority.
+
+a.
+Simple Queue
+
+b.
+Double Ended Queue
+
+c.
+Priority queue
+
+d.
+Circular Queue
+ChatGPT
+The correct answer is:
+
+c. Priority queue
+
+A priority queue is a type of queue where each element has a priority associated with it. Elements are dequeued based on their priority, rather than just their order in the queue.
+
+In _______ queue all nodes are treated as circular such that the first node follows the last node.
+
+a.
+Dequeue
+
+b.
+Simple
+
+c.
+Circular
+
+d.
+Prority
+ChatGPT
+The correct answer is:
+
+c. Circular
+
+In a circular queue, the last node is connected to the first node, forming a circular structure. This allows for efficient use of space and simplifies the implementation of the queue operations.
+
+Double Ended Queue is also know as Dqueue
+
+a.
+True
+
+b.
+False
+ChatGPT
+a. True
+
+A Double Ended Queue, often abbreviated as Deque (or Dqueue), is a data structure that allows insertion and deletion of elements from both ends—front and rear.
+
+There are ________types of Queue data structure.
+
+a.
+Four
+
+b.
+One
+
+c.
+Two
+
+d.
+Three
+ChatGPT
+The correct answer is:
+
+d. Three
+
+There are generally three common types of queue data structures:
+
+Simple Queue - A basic queue where elements are added at the rear and removed from the front.
+Circular Queue - A queue where the last position is connected to the first position to make a circular structure.
+Double Ended Queue (Deque) - A queue that allows insertion and deletion from both the front and rear ends.
+nsertion operation is done using __________ in a queue.
+
+a.
+push
+
+b.
+Pop
+
+c.
+Dequeue
+
+d.
+Enqueu
+ChatGPT
+The correct answer is:
+
+d. Enqueue
+
+In a queue, the insertion operation is called enqueue. This operation adds an element to the rear of the queue.
+
+What would be the prefix expression of this infix expression of (A+B)*(C+D)
+
+a.
++AB*C+D
+
+b.
+*+AB+CD?
+
+c.
+A*B*C+D
+
+d.
++AB*C+D
+ChatGPT
+To convert the infix expression 
+(
+𝐴
++
+𝐵
+)
+∗
+(
+𝐶
++
+𝐷
+)
+(A+B)∗(C+D) to prefix notation, follow these steps:
+
+Identify the operators and their precedence:
+
+The operators are * (multiplication) and + (addition).
+* has higher precedence than +.
+Rewrite the expression in prefix notation:
+
+Start with the highest precedence operator, which is * in this case.
+The expression A+B and C+D are sub-expressions to the left and right of the * operator.
+Convert the sub-expressions to prefix notation:
+
+For A+B, the prefix notation is +AB.
+For C+D, the prefix notation is +CD.
+Combine the prefix notations:
+
+The prefix notation of the entire expression 
+(
+𝐴
++
+𝐵
+)
+∗
+(
+𝐶
++
+𝐷
+)
+(A+B)∗(C+D) is * +AB +CD.
+So, the correct answer is:
+
+b. *+AB+CD
+
+_______ function is used to return the value of first element without dequeuing it in queue.
+
+a.
+peek
+
+b.
+Delete
+
+c.
+Dequeue
+
+d.
+Display
+ChatGPT
+The correct answer is:
+
+a. peek
+
+The peek function (or sometimes called front) is used to return the value of the first element in a queue without removing it.

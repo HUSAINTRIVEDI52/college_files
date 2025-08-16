@@ -1,0 +1,988 @@
+create table Employe( Name varchar(40),Age int,Address varchar(5
+0),Join_date Date,Leave_date Date,Salary int);
+Query OK, 0 rows affected (0.02 sec)
+ INSERT INTO EMPLOYE VALUES ('Akshay',22,'Ahmedabad','2015-6-22','2022-8-30',22000);
+Query OK, 1 row affected (0.01 sec)
+mysql> INSERT INTO EMPLOYE VALUES ('Deep',24,'Surat','2017-3-12','2021-5
+-22',25000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO EMPLOYE VALUES ('Nisha',26,'Delhi','2015-4-22','2020-
+7-15',27000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO EMPLOYE VALUES ('Bhavik',20,'Ahmedabad','2017-5-10','
+2022-6-23',21000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO EMPLOYE VALUES ('Shanaya',27,'Chandigarh','2010-6-12'
+,'2022-5-30',28000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO EMPLOYE VALUES ('Prisha',29,'Ahmedabad','2010-7-22','
+2021-6-12',30000);
+Query OK, 1 row affected (0.01 sec)
+
+List all the Employee details
+mysql> select * from employe;
++---------+------+------------+------------+------------+--------+
+| Name    | Age  | Address    | Join_date  | Leave_date | Salary |
++---------+------+------------+------------+------------+--------+
+| Akshay  |   22 | Ahmedabad  | 2015-06-22 | 2022-08-30 |  22000 |
+| Deep    |   24 | Surat      | 2017-03-12 | 2021-05-22 |  25000 |
+| Nisha   |   26 | Delhi      | 2015-04-22 | 2020-07-15 |  27000 |
+| Bhavik  |   20 | Ahmedabad  | 2017-05-10 | 2022-06-23 |  21000 |
+| Shanaya |   27 | Chandigarh | 2010-06-12 | 2022-05-30 |  28000 |
+| Prisha  |   29 | Ahmedabad  | 2010-07-22 | 2021-06-12 |  30000 |
++---------+------+------------+------------+------------+--------+
+6 rows in set (0.00 sec)
+
+List all the department details
+mysql> select length(name) as length_of_name ,LENGTH(Address) as length_of_address_City from employe;
++----------------+------------------------+
+| length_of_name | length_of_address_City |
++----------------+------------------------+
+|              6 |                      9 |
+|              4 |                      5 |
+|              5 |                      5 |
+*|              6 |                      9|
+|              7 |                     10 |
+|              6 |                      9 |
++----------------+------------------------+
+6 rows in set (0.00 sec)
+
+List all designation details.
+mysql> select Lcase(Address) from employe;
++----------------+
+| Lcase(Address) |
++----------------+
+| ahmedabad      |
+| surat          |
+| delhi          |
+| ahmedabad      |
+| chandigarh     |
+| ahmedabad      |
++----------------+
+6 rows in set (0.00 sec)
+
+Display the Reigonal group from department table
+mysql> select Lower(Address) from employe;
++----------------+
+| Lower(Address) |
++----------------+
+| ahmedabad      |
+| surat          |
+| delhi          |
+| ahmedabad      |
+| chandigarh     |
+| ahmedabad      |
++----------------+
+6 rows in set (0.00 sec)
+
+mysql> select Upper(Address) from employe;
++----------------+
+| Upper(Address) |
++----------------+
+| AHMEDABAD      |
+| SURAT          |
+| DELHI          |
+| AHMEDABAD      |
+| CHANDIGARH     |
+| AHMEDABAD      |
++----------------+
+6 rows in set (0.00 sec)
+
+mysql> select UCase(Address) from employe;
++----------------+
+| UCase(Address) |
++----------------+
+| AHMEDABAD      |
+| SURAT          |
+| DELHI          |
+| AHMEDABAD      |
+| CHANDIGARH     |
+| AHMEDABAD      |
++----------------+
+6 rows in set (0.00 sec)
+mysql> select substr(name,1,5) from employe;
++------------------+
+| substr(name,1,5) |
++------------------+
+| Aksha            |
+| Deep             |
+| Nisha            |
+| Bhavi            |
+| Shana            |
+| Prish            |
++------------------+
+6 rows in set (0.00 sec)
+mysql> select right(name,4) from employe;
++---------------+
+| right(name,4) |
++---------------+
+| shay          |
+| Deep          |
+| isha          |
+| avik          |
+| naya          |
+| isha          |
++---------------+
+6 rows in set (0.00 sec)
+
+mysql> select substr(name,2) from employe;
++----------------+
+| substr(name,2) |
++----------------+
+| kshay          |
+| eep            |
+| isha           |
+| havik          |
+| hanaya         |
+| risha          |
++----------------+
+6 rows in set (0.00 sec)
+
+mysql> select concat(name,' ',Address) as name_City from employe;
++--------------------+
+| name_City          |
++--------------------+
+| Akshay Ahmedabad   |
+| Deep Surat         |
+| Nisha Delhi        |
+| Bhavik Ahmedabad   |
+| Shanaya Chandigarh |
+| Prisha Ahmedabad   |
++--------------------+
+6 rows in set (0.00 sec)
+
+
+mysql> update employe set name= REPLACE(name,'ana','aa') where name like
+ '%ana'
+    -> ;
+Query OK, 0 rows affected (0.02 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select * from Employe;
++---------+------+------------+------------+------------+--------+
+| Name    | Age  | Address    | Join_date  | Leave_date | Salary |
++---------+------+------------+------------+------------+--------+
+| Akshay  |   22 | Ahmedabad  | 2015-06-22 | 2022-08-30 |  22000 |
+| Deep    |   24 | Surat      | 2017-03-12 | 2021-05-22 |  25000 |
+| Nisha   |   26 | Delhi      | 2015-04-22 | 2020-07-15 |  27000 |
+| Bhavik  |   20 | Ahmedabad  | 2017-05-10 | 2022-06-23 |  21000 |
+| Shanaya |   27 | Chandigarh | 2010-06-12 | 2022-05-30 |  28000 |
+| Prisha  |   29 | Ahmedabad  | 2010-07-22 | 2021-06-12 |  30000 |
++---------+------+------------+------------+------------+--------+
+6 rows in set (0.00 sec)
+mysql> select reverse(name), reverse(address) from employe;
++---------------+------------------+
+| reverse(name) | reverse(address) |
++---------------+------------------+
+| yahskA        | dabademhA        |
+| peeD          | taruS            |
+| ahsiN         | ihleD            |
+| kivahB        | dabademhA        |
+| ayanahS       | hragidnahC       |
+| ahsirP        | dabademhA        |
++---------------+------------------+
+6 rows in set (0.00 sec)
+mysql> select ascii(name) from employe;
++-------------+
+| ascii(name) |
++-------------+
+|          65 |
+|          68 |
+|          78 |
+|          66 |
+|          83 |
+|          80 |
++-------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employe where locate('a',name)=1;
++--------+------+-----------+------------+------------+--------+
+| Name   | Age  | Address   | Join_date  | Leave_date | Salary |
++--------+------+-----------+------------+------------+--------+
+| Akshay |   22 | Ahmedabad | 2015-06-22 | 2022-08-30 |  22000 |
++--------+------+-----------+------------+------------+--------+
+1 row in set (0.01 sec)
+mysql> select * from employe order by name asc;
++---------+------+------------+------------+------------+--------+
+| Name    | Age  | Address    | Join_date  | Leave_date | Salary |
++---------+------+------------+------------+------------+--------+
+| Akshay  |   22 | Ahmedabad  | 2015-06-22 | 2022-08-30 |  22000 |
+| Bhavik  |   20 | Ahmedabad  | 2017-05-10 | 2022-06-23 |  21000 |
+| Deep    |   24 | Surat      | 2017-03-12 | 2021-05-22 |  25000 |
+| Nisha   |   26 | Delhi      | 2015-04-22 | 2020-07-15 |  27000 |
+| Prisha  |   29 | Ahmedabad  | 2010-07-22 | 2021-06-12 |  30000 |
+| Shanaya |   27 | Chandigarh | 2010-06-12 | 2022-05-30 |  28000 |
++---------+------+------------+------------+------------+--------+
+6 rows in set (0.00 sec)
+mysql> select * from employe order by name desc;
++---------+------+------------+------------+------------+--------+
+| Name    | Age  | Address    | Join_date  | Leave_date | Salary |
++---------+------+------------+------------+------------+--------+
+| Shanaya |   27 | Chandigarh | 2010-06-12 | 2022-05-30 |  28000 |
+| Prisha  |   29 | Ahmedabad  | 2010-07-22 | 2021-06-12 |  30000 |
+| Nisha   |   26 | Delhi      | 2015-04-22 | 2020-07-15 |  27000 |
+| Deep    |   24 | Surat      | 2017-03-12 | 2021-05-22 |  25000 |
+| Bhavik  |   20 | Ahmedabad  | 2017-05-10 | 2022-06-23 |  21000 |
+| Akshay  |   22 | Ahmedabad  | 2015-06-22 | 2022-08-30 |  22000 |
++---------+------+------------+------------+------------+--------+
+6 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------MATH-----------------------------------------------
+
+mysql> SELECT MIN(salary) as min_salary , max(salary) as max_salary, avg(salary) as avg_salary, sum(salary) as total_salary from employe;
++------------+------------+------------+--------------+
+| min_salary | max_salary | avg_salary | total_salary |
++------------+------------+------------+--------------+
+|      21000 |      30000 | 25500.0000 |       153000 |
++------------+------------+------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select mod(Age,6) from employe;
++------------+
+| mod(Age,6) |
++------------+
+|          4 |
+|          0 |
+|          2 |
+|          2 |
+|          3 |
+|          5 |
++------------+
+6 rows in set (0.00 sec)
+
+mysql> select ceil(46.64);
++-------------+
+| ceil(46.64) |
++-------------+
+|          47 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select floor(46.64);
++--------------+
+| floor(46.64) |
++--------------+
+|           46 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select round(46.06);
++--------------+
+| round(46.06) |
++--------------+
+|           46 |
++--------------+
+1 row in set (0.00 sec)
+mysql> select rand();
++--------------------+
+| rand()             |
++--------------------+
+| 0.7557209429850066 |
++--------------------+
+1 row in set (0.00 sec)
+mysql> select count(*) from employe;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select power(salary,2) from employe;
++-----------------+
+| power(salary,2) |
++-----------------+
+|       484000000 |
+|       625000000 |
+|       729000000 |
+|       441000000 |
+|       784000000 |
+|       900000000 |
++-----------------+
+6 rows in set (0.00 sec)
+
+---------------------------------------Date------------------------------------------------------------------------------
+
+mysql> select datediff(Leave_date,join_date) from employe;
++--------------------------------+
+| datediff(Leave_date,join_date) |
++--------------------------------+
+|                           2626 |
+|                           1532 |
+|                           1911 |
+|                           1870 |
+|                           4370 |
+|                           3978 |
++--------------------------------+
+6 rows in set (0.00 sec)
+
+mysql> select eid,name,join_date , weekday(Join_date)  from Employe;
++------+---------+------------+--------------------+
+| eid  | name    | join_date  | weekday(Join_date) |
++------+---------+------------+--------------------+
+|  101 | Akshay  | 2015-06-22 |                  0 |
+|  102 | Deep    | 2017-03-12 |                  6 |
+|  103 | Nisha   | 2015-04-22 |                  2 |
+|  104 | Bhavik  | 2017-05-10 |                  2 |
+|  105 | Shanaya | 2010-06-12 |                  5 |
+|  106 | Prisha  | 2010-07-22 |                  3 |
++------+---------+------------+--------------------+
+6 rows in set (0.00 sec)
+mysql> select eid,name,name,Join_date ,date_format(Join_date,'%b') as half,date_format(Join_date,'%M') as full from employe;
++------+---------+---------+------------+------+-------+
+| eid  | name    | name    | Join_date  | half | full  |
++------+---------+---------+------------+------+-------+
+|  101 | Akshay  | Akshay  | 2015-06-22 | Jun  | June  |
+|  102 | Deep    | Deep    | 2017-03-12 | Mar  | March |
+|  103 | Nisha   | Nisha   | 2015-04-22 | Apr  | April |
+|  104 | Bhavik  | Bhavik  | 2017-05-10 | May  | May   |
+|  105 | Shanaya | Shanaya | 2010-06-12 | Jun  | June  |
+|  106 | Prisha  | Prisha  | 2010-07-22 | Jul  | July  |
++------+---------+---------+------------+------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employe where date_format(Join_date,'%Y')>2010;
++--------+------+-----------+------------+------------+--------+------+
+| Name   | Age  | Address   | Join_date  | Leave_date | Salary | eid  |
++--------+------+-----------+------------+------------+--------+------+
+| Akshay |   22 | Ahmedabad | 2015-06-22 | 2022-08-30 |  22000 |  101 |
+| Deep   |   24 | Surat     | 2017-03-12 | 2021-05-22 |  25000 |  102 |
+| Nisha  |   26 | Delhi     | 2015-04-22 | 2020-07-15 |  27000 |  103 |
+| Bhavik |   20 | Ahmedabad | 2017-05-10 | 2022-06-23 |  21000 |  104 |
++--------+------+-----------+------------+------------+--------+------+
+4 rows in set (0.00 sec)
+
+mysql> select sysdate();
++---------------------+
+| sysdate()           |
++---------------------+
+| 2024-07-10 23:48:22 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_format(Leave_date,'%M') as month,date_Format(Leave_date,'%e') as date f
+rom employe;
++--------+------+
+| month  | date |
++--------+------+
+| August | 30   |
+| May    | 22   |
+| July   | 15   |
+| June   | 23   |
+| May    | 30   |
+| June   | 12   |
++--------+------+
+6 rows in set (0.00 sec)
+
+mysql> select date_format(Leave_date,'%M') as month, date_format(LEave_date,'%U') as weekname , date_Format(Leave_Date,'%Y') as year from employe;
++--------+----------+------+
+| month  | weekname | year |
++--------+----------+------+
+| August | 35       | 2022 |
+| May    | 20       | 2021 |
+| July   | 28       | 2020 |
+| June   | 25       | 2022 |
+| May    | 22       | 2022 |
+| June   | 23       | 2021 |
++--------+----------+------+
+6 rows in set (0.00 sec)
+
+
+_____________________________________TASK 2 UNIVERSITTY DATABASE__________________________________________________________
+
+
+
+---------------------------------------------STRING----------------------------------------------------------------------
+
+mysql> select * from students;
++-----------+------------+-----------+------------+--------+-------------------+-----------+---------------+-------------+---------------+
+| STudentid | First_name | Last_name | DOB        | gender | email             | phone     | Address       | Postal_Code | City          |
++-----------+------------+-----------+------------+--------+-------------------+-----------+---------------+-------------+---------------+
+| 201       | AAkash     | Sharma    | 2000-10-31 | Male   | aa02@gmail.com    | 321478965 | Vadodra       |      363421 | Vadodra       |
+| 202       | Kinjal     | Jadav     | 2001-01-14 | FeMale | norway1@gmail.com | 147852369 | Ahmedabad     |      380001 | Ahmedabad     |
+| 203       | Harshraj   | Jadeja    | 1999-05-21 | Male   | Har98@gmail.com   | 564231897 | Surendranagar |      365412 | Surendranagar |
+| 204       | Karan      | Pithadiya | 2005-05-05 | Male   | Jad99@gmail.com   | 528639417 | Surat         |      380041 | Surat         |
+| 205       | Rutvi      | Pandya    | 1982-09-30 | FeMale | Pandya1@gmail.com | 753914682 | Rajkot        |      360012 | Rajkot        |
++-----------+------------+-----------+------------+--------+-------------------+-----------+---------------+-------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Professors Order by ProfessorId,FIrst_n
+ame,Last_name,Department_id,email,phone asc;
++-------------+------------+-----------+---------------+----------------------+-----------+
+| ProfessorID | first_NAme | Last_Name | Department_id | email                | Phone     |
++-------------+------------+-----------+---------------+----------------------+-----------+
+|         101 | ANKIT      | DESAI     |            21 | ANKIT002@GMAIL.COM   | 123456789 |
+|         102 | Patel      | ROse      |            45 | PatelROse@gmail.com  | 456123987 |
+|         102 | Ruby       | Shrina    |            78 | RubyShrina@gmail.com | 789321465 |
+|         102 | Sharma     | Dhruvi    |            21 | SharmaDhru@gmail.com | 456932871 |
+|         102 | Trivedi    | Harsh     |            26 | TrivediHah@gmail.com | 789632145 |
++-------------+------------+-----------+---------------+----------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select distinct First_name from students  Order by First_name desc;
++------------+
+| First_name |
++------------+
+| Rutvi      |
+| Kinjal     |
+| Karan      |
+| Harshraj   |
+| AAkash     |
++------------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT ASCII('a');
++------------+
+| ASCII('a') |
++------------+
+|         97 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select concat(First_name,' ',Last_name,' ',StudentId,' ',Phone) as Phone from students;
++-------------------------------+
+| Phone                         |
++-------------------------------+
+| AAkash Sharma 201 321478965   |
+| Kinjal Jadav 202 147852369    |
+| Harshraj Jadeja 203 564231897 |
+| Karan Pithadiya 204 528639417 |
+| Rutvi Pandya 205 753914682    |
++-------------------------------+
+5 rows in set (0.00 sec)
+
+
+mysql> select locate('I',First_name) as _Locatio
+n from Students;
++-----------+
+| _Location |
++-----------+
+|         0 |
+|         2 |
+|         0 |
+|         0 |
+|         5 |
++-----------+
+5 rows in set (0.00 sec)
+
+mysql> update professors SET email = CONCAT(LEFT(email, LENGTH(email) - 5), '.co.in');
+Query OK, 5 rows affected (0.18 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> select email from professors;
++----------------------+
+| email                |
++----------------------+
+| ankit@gmai.co.in     |
+| PatelROse@gmai.co.in |
+| hah@gmai.co.in       |
+| shar@gmai.co.in      |
+| RUBY@gmai.co.in      |
++----------------------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE STUDENTS SET CITY='MUMBAI' WHERE CITY='RAJKOT';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT REVERSE(LAST_NAME) FROM PROFESSORS;
++--------------------+
+| REVERSE(LAST_NAME) |
++--------------------+
+| IASED              |
+| esOR               |
+| hsraH              |
+| ivurhD             |
+| anirhS             |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT UCASE(fIRST_NAME) FROM PROFESSORS;
++-------------------+
+| UCASE(fIRST_NAME) |
++-------------------+
+| ANKIT             |
+| PATEL             |
+| TRIVEDI           |
+| SHARMA            |
+| RUBY              |
++-------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT LCASE(EMAIL) FROM PROFESSORS;
++----------------------+
+| LCASE(EMAIL)         |
++----------------------+
+| ankit@gmai.co.in     |
+| patelrose@gmai.co.in |
+| hah@gmai.co.in       |
+| shar@gmai.co.in      |
+| ruby@gmai.co.in      |
++----------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT LENGTH(FIRST_NAME) FROM PROFESSORS;
++--------------------+
+| LENGTH(FIRST_NAME) |
++--------------------+
+|                  6 |
+|                  5 |
+|                  7 |
+|                  6 |
+|                  4 |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT REPEAT(CITY,3) FROM STUDENTS;
++-----------------------------------------+
+| REPEAT(CITY,3)                          |
++-----------------------------------------+
+| VadodraVadodraVadodra                   |
+| AhmedabadAhmedabadAhmedabad             |
+| SurendranagarSurendranagarSurendranagar |
+| SuratSuratSurat                         |
+| MUMBAIMUMBAIMUMBAI                      |
++-----------------------------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT SUBSTR(fIRST_NAME,2,5) FROM PROFESSORS;
++------------------------+
+| SUBSTR(fIRST_NAME,2,5) |
++------------------------+
+| NKIT                   |
+| atel                   |
+| rived                  |
+| harma                  |
+| uby                    |
++------------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT LEFT(fIRST_NAME,5) FROM STUDENTS;
++--------------------+
+| LEFT(fIRST_NAME,5) |
++--------------------+
+| AAkas              |
+| Kinja              |
+| Harsh              |
+| Karan              |
+| Rutvi              |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT LEFT(fIRST_NAME,5) FROM STUDENTS;
++--------------------+
+| LEFT(fIRST_NAME,5) |
++--------------------+
+| AAkas              |
+| Kinja              |
+| Harsh              |
+| Karan              |
+| Rutvi              |
++--------------------+
+5 rows in set (0.00 sec)
+
+---------------------------------------MATH-------------------------------------------------------------------
+
+mysql> SELECT AVG(MARKS) FROM MARKSHEET WHERE STUDENTID=1;
++------------+
+| AVG(MARKS) |
++------------+
+|    25.0000 |
++------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT sum(MARKS) FROM MARKSHEET WHERE STUDENTID=3;
++------------+
+| sum(MARKS) |
++------------+
+|         69 |
++------------+
+1 row in set (0.00 sec)
+
+
+mysql> SELECT Subid,subname FROM Subjects WHERE departmentid=2;
++-------+---------+
+| Subid | subname |
++-------+---------+
+| 2     | Maths   |
++-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select ceil(avg(marks)) from marksheet where studentid=3;
++------------------+
+| ceil(avg(marks)) |
++------------------+
+|               69 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select floor(avg(marks)) from marksheet where studentid=2;
++------------------+
+| ceil(avg(marks)) |
++------------------+
+|               54 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select max(marks) from Marksheet where subid=1;
++------------+
+| max(marks) |
++------------+
+|         25 |
++------------+
+1 row in set (0.01 sec)
+
+mysql> select min(marks) from Marksheet where studentid=1;
++------------+
+| min(marks) |
++------------+
+|         25 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select mod(Marks,5) from marksheet;
++--------------+
+| mod(Marks,5) |
++--------------+
+|            0 |
+|            4 |
+|            4 |
+|            1 |
+|            2 |
++--------------+
+5 rows in set (0.00 sec)
+
+mysql> select power(Marks,2) from marksheet;
++----------------+
+| power(Marks,2) |
++----------------+
+|            625 |
+|           2916 |
+|           4761 |
+|           9216 |
+|           7569 |
++----------------+
+5 rows in set (0.00 sec).
+
+
+---------------------------------------------------DATE-------------------------------------------------------
+
+mysql> select DATE_FORMAT(DOB,'%d' ' ' '%m' ' ' '%Y') AS DMY from students;
++------------+
+| DMY        |
++------------+
+| 31 10 2000 |
+| 14 01 2001 |
+| 21 05 1999 |
+| 05 05 2005 |
+| 30 09 1982 |
++------------+
+5 rows in set (0.00 sec)
+mysql> SELECT SYSDATE();
++---------------------+
+| SYSDATE()           |
++---------------------+
+| 2024-07-14 00:40:18 |
++---------------------+
+1 row in set (0.00 sec)
+mysql> SELECT FIRST_NAME,timestampdiff(YEAR,DOB,CURDATE())
+ AS AGE FROM STUDENTS;
++------------+------+
+| FIRST_NAME | AGE  |
++------------+------+
+| AAkash     |   23 |
+| Kinjal     |   23 |
+| Harshraj   |   25 |
+| Karan      |   19 |
+| Rutvi      |   41 |
++------------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT ASCII('a');
++------------+
+| ASCII('a') |
++------------+
+|         97 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select round(333.44567,3);
++--------------------+
+| round(333.44567,3) |
++--------------------+
+|            333.446 |
++--------------------+
+1 row in set (0.06 sec)
+mysql> select least(3456,6789,9876,5432) as least_number,greatest(3456,6789,9876,5432) as
+ greatest_number;
++--------------+-----------------+
+| least_number | greatest_number |
++--------------+-----------------+
+|         3456 |            9876 |
++--------------+-----------------+
+1 row in set (0.00 sec)
+mysql> select sin(4.7),cos(4.7);
++---------------------+----------------------+
+| sin(4.7)            | cos(4.7)             |
++---------------------+----------------------+
+| -0.9999232575641008 | -0.01238866346289056 |
++---------------------+----------------------+
+1 row in set (0.02 sec)
+mysql> select pi();
++----------+
+| pi()     |
++----------+
+| 3.141593 |
++----------+
+1 row in set (0.00 sec)
+mysql> select date_add('2024-08-3 09:00:25', INTERVAL 15 MINUTE) AS NEW_DATE;
++---------------------+
+| NEW_DATE            |
++---------------------+
+| 2024-08-03 09:15:25 |
++---------------------+
+1 row in set (0.00 sec)
+mysql> select date_add(DOB, INTERVAL 15 DAY) AS NEW_DAY FR
+OM STUDENTS;;
++------------+
+| NEW_DAY    |
++------------+
+| 2000-11-15 |
+| 2001-01-29 |
+| 1999-06-05 |
+| 2005-05-20 |
+| 1982-10-15 |
++------------+
+5 rows in set (0.00 sec)
+mysql> SELECT DATEDIFF('2017-01-01','2016-12-24');
++-------------------------------------+
+| DATEDIFF('2017-01-01','2016-12-24') |
++-------------------------------------+
+|                                   8 |
++-------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> select day('2017-06-15');
++-------------------+
+| day('2017-06-15') |
++-------------------+
+|                15 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql>  select dayofmonth(sysdate());
++-----------------------+
+| dayofmonth(sysdate()) |
++-----------------------+
+|                    14 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql>  select dayofyear(sysdate());
++----------------------+
+| dayofyear(sysdate()) |
++----------------------+
+|                  196 |
++----------------------+
+1 row in set (0.00 sec)
+mysql>  select date_format('2017-06-15','%W');
++--------------------------------+
+| date_format('2017-06-15','%W') |
++--------------------------------+
+| Thursday                       |
++--------------------------------+
+1 row in set (0.00 sec)
+
+
+________________________________________________________FLIGHTS DATABASE__________________________________________________
+
+mysql> SELECT * FROM FLIGHTS;
++------+------------+-----------+-----------+----------+---------+---------+-------+
+| flno | FLIGHTNAME | FROM_CITY | TO_CITY   | DISTANCE | DEPARTS | ARRIVES | PRICE |
++------+------------+-----------+-----------+----------+---------+---------+-------+
+|   10 | FH25       | CHENNAI   | AHMEDABAD | 450KMS   |      14 |      19 |  4500 |
+|   11 | FN58       | BANGLORE  | KOLKATA   | 950KMS   |      11 |      18 |  8500 |
+|   12 | GT55       | RAJKOT    | VADODRA   | 250KMS   |       9 |      11 |  5500 |
+|   13 | CD54       | VADODRA   | AHMEDABAD | 100KMS   |      13 |      15 |  1500 |
+|   14 | VF47       | INDORE    | RAJKOT    | 1001KMS  |      11 |      19 |  7800 |
+|   15 | CC91       | MUMBAI    | UDAIPUR   | 750KMS   |       3 |      15 |  6500 |
++------+------------+-----------+-----------+----------+---------+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> update flights set price = price*1.5;
+Query OK, 6 rows affected (0.01 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+mysql> select * from flights;
++------+------------+-----------+-----------+----------+---------+---------+-------+
+| flno | FLIGHTNAME | FROM_CITY | TO_CITY   | DISTANCE | DEPARTS | ARRIVES | PRICE |
++------+------------+-----------+-----------+----------+---------+---------+-------+
+|   10 | FH25       | CHENNAI   | AHMEDABAD | 450KMS   |      14 |      19 |  6750 |
+|   11 | FN58       | BANGLORE  | KOLKATA   | 950KMS   |      11 |      18 | 12750 |
+|   12 | GT55       | RAJKOT    | VADODRA   | 250KMS   |       9 |      11 |  8250 |
+|   13 | CD54       | VADODRA   | AHMEDABAD | 100KMS   |      13 |      15 |  2250 |
+|   14 | VF47       | INDORE    | RAJKOT    | 1001KMS  |      11 |      19 | 11700 |
+|   15 | CC91       | MUMBAI    | UDAIPUR   | 750KMS   |       3 |      15 |  9750 |
++------+------------+-----------+-----------+----------+---------+---------+-------+
+6 rows in set (0.00 sec)
+mysql> select * from flights where from_city='CHennai';
++------+------------+-----------+-----------+----------+---------+---------+-------+
+| flno | FLIGHTNAME | FROM_CITY | TO_CITY   | DISTANCE | DEPARTS | ARRIVES | PRICE |
++------+------------+-----------+-----------+----------+---------+---------+-------+
+|   10 | FH25       | CHENNAI   | AHMEDABAD | 450KMS   |      14 |      19 |  6750 |
++------+------------+-----------+-----------+----------+---------+---------+-------+
+1 row in set (0.00 sec)
+mysql> select * from flights where to_city='Ahmedabad';;
++------+------------+-----------+-----------+----------+---------+---------+-------+
+| flno | FLIGHTNAME | FROM_CITY | TO_CITY   | DISTANCE | DEPARTS | ARRIVES | PRICE |
++------+------------+-----------+-----------+----------+---------+---------+-------+
+|   10 | FH25       | CHENNAI   | AHMEDABAD | 450KMS   |      14 |      19 |  6750 |
+|   13 | CD54       | VADODRA   | AHMEDABAD | 100KMS   |      13 |      15 |  2250 |
++------+------------+-----------+-----------+----------+---------+---------+-------+
+2 rows in set (0.00 sec)
+mysql> select * from flights where flno=10;
++------+------------+-----------+-----------+----------+---------+---------+-------+
+| flno | FLIGHTNAME | FROM_CITY | TO_CITY   | DISTANCE | DEPARTS | ARRIVES | PRICE |
++------+------------+-----------+-----------+----------+---------+---------+-------+
+|   10 | FH25       | CHENNAI   | AHMEDABAD | 450KMS   |      14 |      19 |  6750 |
++------+------------+-----------+-----------+----------+---------+---------+-------+
+1 row in set (0.01 sec)
+mysql> select * from employee where salary>10000;
++--------+------+-----------+------------+------------+--------+
+| Name   | Age  | Address   | Join_date  | Leave_date | Salary |
++--------+------+-----------+------------+------------+--------+
+| Akshay |   22 | AHMEDABAD | 1987-06-22 | 2022-08-30 |  22000 |
+| Akshay |   22 | AHMEDABAD | 2015-06-22 | 2022-08-30 |  22000 |
++--------+------+-----------+------------+------------+--------+
+2 rows in set (0.01 sec)
+mysql> select * from aircraft where Country='DUBAI';
++------+-------+---------+
+| aid  | ename | Country |
++------+-------+---------+
+| 4587 | DS45  | DUBAI   |
++------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select concat(from_city,' ',to_city,' ',distance) as flights from flights;
++--------------------------+
+| flights                  |
++--------------------------+
+| CHENNAI AHMEDABAD 450KMS |
+| BANGLORE KOLKATA 950KMS  |
+| RAJKOT VADODRA 250KMS    |
+| VADODRA AHMEDABAD 100KMS |
+| INDORE RAJKOT 1001KMS    |
+| MUMBAI UDAIPUR 750KMS    |
++--------------------------+
+6 rows in set (0.00 sec)
+
+mysql>  select flightname,price, max(price) from flights;
++------------+-------+------------+
+| flightname | price | max(price) |
++------------+-------+------------+
+| FH25       |  6750 |      12750 |
++------------+-------+------------+
+1 row in set (0.00 sec)
+`
+
+____________________________________________Company Database______________________________________________________________
+mysql> select * from cemployee;
++-------+------------+-----------+------------+-----------+--------+---------+--------+
+| Empid | First_name | last_name | hiredate   | City      | salary | Designo | DeptNo |
++-------+------------+-----------+------------+-----------+--------+---------+--------+
+|     1 | Trivedi    | Husain    | 2021-08-21 | Ahmedabad |  25000 |      21 |    547 |
+|     2 | Kumar      | Akshay    | 2021-09-30 | Mumbai    |  27000 |      22 |    478 |
+|     3 | Jain       | Kashish   | 2021-05-05 | Vadodra   |  29000 |      23 |    785 |
+|     4 | Soni       | Dhruvi    | 2021-06-06 | Chennai   |  31000 |      24 |    125 |
+|     4 | Acharya    | Krish     | 2021-08-02 | Banglore  |  33000 |      25 |    127 |
++-------+------------+-----------+------------+-----------+--------+---------+--------+
+5 rows in set (0.00 sec)
+	mysql> update cemployee set salary=salary*1.12;
+Query OK, 5 rows affected (0.01 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+mysql> Alter table cemployee drop salary;
+Query OK, 5 rows affected (0.07 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from cemployee where salary>25000;
++-------+------------+-----------+------------+-----------+---------+--------+--------+
+| Empid | First_name | last_name | hiredate   | City      | Designo | DeptNo | salary |
++-------+------------+-----------+------------+-----------+---------+--------+--------+
+|     1 | Trivedi    | Husain    | 2021-08-21 | Ahmedabad |      21 |    547 |  28000 |
+|     2 | Kumar      | Akshay    | 2021-09-30 | Mumbai    |      22 |    478 |  30000 |
+|     3 | Jain       | Kashish   | 2021-05-05 | Vadodra   |      23 |    785 |  32000 |
+|     4 | Soni       | Dhruvi    | 2021-06-06 | Chennai   |      24 |    125 |  34000 |
+|     4 | Acharya    | Krish     | 2021-08-02 | Banglore  |      25 |    127 |  36000 |
++-------+------------+-----------+------------+-----------+---------+--------+--------+
+5 rows in set (0.00 sec)
+mysql> delete from project where status='completed';
+Query OK, 2 rows affected (0.00 sec)
+
+
+mysql> select * from cemployee where city='Banglore';
++-------+------------+-----------+------------+----------+---------+--------+--------+
+| Empid | First_name | last_name | hiredate   | City     | Designo | DeptNo | salary |
++-------+------------+-----------+------------+----------+---------+--------+--------+
+|     4 | Acharya    | Krish     | 2021-08-02 | Banglore |      25 |    127 |  36000 |
++-------+------------+-----------+------------+----------+---------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> select ascii(First_name) from cemployee;
++-------------------+
+| ascii(First_name) |
++-------------------+
+|                84 |
+|                75 |
+|                74 |
+|                83 |
+|                65 |
++-------------------+
+5 rows in set (0.00 sec)
+mysql> select repeat(Last_name,2) from cemployee where cit
+y='Ahmedabad';
++---------------------+
+| repeat(Last_name,2) |
++---------------------+
+| HusainHusain        |
++---------------------+
+1 row in set (0.00 sec)
+mysql> select upper(First_name),upper(Last_name),upper(City),Empid,hiredate,Salary,Designo,Deptno from cemployee;
++-------------------+------------------+-------------+-------+------------+--------+---------+--------+
+| upper(First_name) | upper(Last_name) | upper(City) | Empid | hiredate   | Salary | Designo | Deptno |
++-------------------+------------------+-------------+-------+------------+--------+---------+--------+
+| TRIVEDI           | HUSAIN           | AHMEDABAD   |     1 | 2021-08-21 |  28000 |      21 |    547 |
+| KUMAR             | AKSHAY           | MUMBAI      |     2 | 2021-09-30 |  30000 |      22 |    478 |
+| JAIN              | KASHISH          | VADODRA     |     3 | 2021-05-05 |  32000 |      23 |    785 |
+| SONI              | DHRUVI           | CHENNAI     |     4 | 2021-06-06 |  34000 |      24 |    125 |
+| ACHARYA           | KRISH            | BANGLORE    |     4 | 2021-08-02 |  36000 |      25 |    127 |
++-------------------+------------------+-------------+-------+------------+--------+---------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select lower(First_name),lower(Last_name),lower(City),Empid,hired
+ate,Salary,Designo,Deptno from cemployee;
++-------------------+------------------+-------------+-------+------------+--------+---------+--------+
+| lower(First_name) | lower(Last_name) | lower(City) | Empid | hiredate   | Salary | Designo | Deptno |
++-------------------+------------------+-------------+-------+------------+--------+---------+--------+
+| trivedi           | husain           | ahmedabad   |     1 | 2021-08-21 |  28000 |      21 |    547 |
+| kumar             | akshay           | mumbai      |     2 | 2021-09-30 |  30000 |      22 |    478 |
+| jain              | kashish          | vadodra     |     3 | 2021-05-05 |  32000 |      23 |    785 |
+| soni              | dhruvi           | chennai     |     4 | 2021-06-06 |  34000 |      24 |    125 |
+| acharya           | krish            | banglore    |     4 | 2021-08-02 |  36000 |      25 |    127 |
++-------------------+------------------+-------------+-------+------------+--------+---------+--------+
+5 rows in set (0.00 sec)
+
+
+mysql> select FIrst_name from cemployee where first_name like '%o%';
++------------+
+| FIrst_name |
++------------+
+| Soni       |
++------------+
+1 row in set (0.00 sec)
+
