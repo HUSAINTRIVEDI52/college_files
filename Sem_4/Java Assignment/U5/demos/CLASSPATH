@@ -1,0 +1,14 @@
+export  CLASSPATH=/usr/share/java/mysql.jar:$CLASSPATH
+
+
+export  CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
+
+export  CLASSPATH=$CLASSPATH:mysql-connector-java.jar
+
+sudo mysql -u root -pRoot@123
+sudo mysql
+
+mysql -u root -p
+create database _______;
+
+show databases;

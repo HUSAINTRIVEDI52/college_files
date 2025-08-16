@@ -1,0 +1,4 @@
+//List without ranges
+$ cut -b 1,2,3 state.txt
+//List with ranges
+$ cut -b 1-3,5-7 state.txt

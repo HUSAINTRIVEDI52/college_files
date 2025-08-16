@@ -1,0 +1,6 @@
+1	Andhra Pradesh	Itanagar
+2	Arunachal Pradesh	Dispur
+3	Assam	Hyderabad
+4	Bihar	Patna
+5	Chhattisgarh	Raipur
+		

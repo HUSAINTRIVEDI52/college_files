@@ -1,0 +1,15 @@
+hello
+bye
+good
+bye
+mornng
+bca
+mca
+pgdca
+afternoon
+India
+USA
+AUs
+Canada
+China
+Japan

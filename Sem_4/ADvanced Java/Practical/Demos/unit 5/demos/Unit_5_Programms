@@ -1,0 +1,569 @@
+//Database_con.java
+import java.sql.*;
+import java.sql.DriverManager;
+import java.sql.Connection;
+
+class Database_con 
+{
+	public static void main(String args[])
+	{
+		try
+		{
+			System.out.println("hello");
+			Connection conn = null;
+     			
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/sonoo","root","Admin@123");
+			System.out.print("Database is connected !");
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			System.out.print("Do not connect to DB - Error:"+e);
+		}
+	}
+}
+------------------------------------------------------------
+//MysqlCon.java
+import java.sql.*;  
+
+class MysqlCon 
+{  
+public static void main(String args[])
+{  
+	try
+	{  
+		Class.forName("com.mysql.jdbc.Driver");  
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","Admin@123"); 
+		
+		Statement stmt=con.createStatement();  
+		ResultSet rs=stmt.executeQuery("select * from emp");  
+		
+		while(rs.next())  
+			System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getInt(3));  
+		con.close();  
+	}
+	catch(Exception e)
+	{ 
+		//System.out.println(e);
+	}  
+}  
+}  
+----------------------------------------------------------
+//Data_Insert.java
+import java.sql.*;  
+
+class Data_Insert 
+{  
+	public static void main(String args[])
+	{  
+		
+		try
+		{  
+		Class.forName("com.mysql.jdbc.Driver");  
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","Admin@123"); 
+		
+		String str ="INSERT INTO emp(id,name,age) VALUES(6,'ramesh',48)";
+		PreparedStatement sql = con.prepareStatement(str);
+		sql.executeUpdate();
+		System.out.println("inserted");				
+		
+		
+		con.close();  
+		}
+		catch(Exception e)
+		{ 
+			System.out.println(e);
+		}  
+	}  
+}  
+-----------------------------------------------------------
+//Data_Insert_2.java
+import java.sql.*;  
+
+class Data_Insert_2
+{  
+	public static void main(String args[])
+	{  
+		int id = Integer.parseInt(args[0]);
+		String name = args[1];
+		int age = Integer.parseInt(args[2]);
+		
+		try
+		{  
+		Class.forName("com.mysql.jdbc.Driver");  
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","Admin@123"); 
+		
+		String str ="INSERT INTO emp(id,name,age) VALUES(" + id + ",'" + name + "'," + age +")";
+		PreparedStatement sql = con.prepareStatement(str);
+		sql.executeUpdate();
+		System.out.println("inserted");				
+		
+		
+		con.close();  
+		}
+		catch(Exception e)
+		{ 
+			System.out.println(e);
+		}  
+	}  
+}  
+-----------------------------------------------------
+//Data_Insert_3.java
+
+import java.sql.*;  
+
+class Data_Insert_3
+{  
+	public static void main(String args[])
+	{  
+		int id = Integer.parseInt(args[0]);
+		String name = args[1];
+		int age = Integer.parseInt(args[2]);
+		
+		try
+		{  
+		Class.forName("com.mysql.jdbc.Driver");  
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","Admin@123"); 
+		
+		String str ="INSERT INTO emp(id,name,age) VALUES(?,?,?)";
+		PreparedStatement sql = con.prepareStatement(str);		
+		sql.setInt(1,id);
+		sql.setString(2,name);
+		sql.setInt(3,age);
+		
+		sql.executeUpdate();
+		System.out.println("Data Inserted");				
+		
+		
+		con.close();  
+		}
+		catch(Exception e)
+		{ 
+			System.out.println(e);
+		}  
+	}  
+}  
+-----------------------------------------------------------------------
+//Data_Delete.java
+import java.sql.*;  
+
+class Data_Delete
+{  
+	public static void main(String args[])
+	{  
+		String name = args[0];	
+		//int id = Integer.parseInt(args[0]);
+		try
+		{  
+		Class.forName("com.mysql.jdbc.Driver");  
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","Admin@123"); 
+		
+		//String str ="DELETE FROM emp WHERE id = ?";
+		String str ="DELETE FROM emp WHERE name = ?";
+
+		PreparedStatement sql = con.prepareStatement(str);
+		//sql.setInt(1,id);		
+		sql.setString(1,name);
+		sql.executeUpdate();
+		System.out.println("Data Deleted");				
+		con.close();  
+		}
+		catch(Exception e)
+		{ 
+			System.out.println(e);
+		}  
+	}  
+}  
+------------------------------------------------------------------------------
+//Data_Update.java
+import java.sql.*;  
+
+class Data_Update
+{  
+	public static void main(String args[])
+	{  
+		int id = Integer.parseInt(args[0]);
+		int age = Integer.parseInt(args[1]);
+		try
+		{  
+		Class.forName("com.mysql.jdbc.Driver");  
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","Admin@123"); 
+		
+		String str ="update emp set age = ? where id = ?";
+		
+
+		PreparedStatement sql = con.prepareStatement(str);
+		sql.setInt(1,age);		
+		sql.setInt(2,id);
+		sql.executeUpdate();
+		System.out.println("Data updated");				
+		con.close();  
+		}
+		catch(Exception e)
+		{ 
+			System.out.println(e);
+		}  
+	}  
+}  
+---------------------------------------------------------------------------
+//InsertExample .java
+
+import java.sql.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+
+public class  InsertExample 
+{
+	public static void main(String[] args) 
+	{
+		Demo d;
+		d=new Demo();
+	}
+}	
+	 
+class Demo extends JFrame implements ActionListener
+{
+	Container con;
+	JLabel j1,j2,j3,j4;
+	JTextField text1,text2,text3;
+	JButton b1;
+		
+	Demo()
+	{
+		setVisible(true);
+		setSize(350,150);
+		con = getContentPane();
+		//con=getContentPane();
+		con.setLayout(new GridLayout(4,2,5,5));
+		
+			
+		j1=new JLabel("Enter Employee ID");
+		text1 = new JTextField(03);
+		j2 = new JLabel("Enter Employee Name ");
+		text2 = new JTextField(10);
+		j3=new JLabel("Enter Employee Age ");
+		text3 = new JTextField(03);
+		
+		b1=new JButton("ADD DATA");
+		j4=new JLabel("");
+
+
+		con.add(j1);
+		con.add(text1);
+		con.add(j2);
+		con.add(text2);	
+		con.add(j3);
+		con.add(text3);
+		con.add(b1);
+		con.add(j4);
+			
+		b1.addActionListener(this);
+		addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent we)
+			{
+				System.exit(0);
+			}
+		});
+	}
+		
+	public void actionPerformed(ActionEvent e)
+	{
+		try{
+				
+			Class.forName("com.mysql.jdbc.Driver");
+				
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","Admin@123"); 
+				
+				int id = Integer.parseInt(text1.getText());
+				String name = text2.getText();
+				int age = Integer.parseInt(text3.getText());
+				
+				
+				String str ="INSERT INTO emp(id,name,age) VALUES(?,?,?)";
+				
+				PreparedStatement sql = con.prepareStatement(str);
+				sql.setInt(1,id);
+				sql.setString(2,name);
+				sql.setInt(3,age);
+							
+				sql.executeUpdate();
+				System.out.println("inserted");
+				j4.setText("Data Inserted");
+				text1.setText("");
+				text2.setText("");
+				text3.setText("");
+				con.close();  
+		}
+		catch(Exception P)
+		{
+			System.out.println("catch");
+		}
+	}
+}
+
+---------------------------------------------------------------------
+//DisplayExample.java
+
+import java.sql.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+
+public class  DisplayExample 
+{
+	public static void main(String[] args) 
+	{
+		Demo d;
+		d=new Demo();
+	}
+}	
+	 
+class Demo extends JFrame implements ActionListener
+{
+	Container con;
+	JLabel j1,j2,j3,j4;
+	JTextField text1;
+	JButton b1;
+		
+	Demo()
+	{
+		setVisible(true);
+		setSize(350,150);
+		con = getContentPane();
+		//con=getContentPane();
+		con.setLayout(new GridLayout(5,2,5,5));
+		
+			
+		j1=new JLabel("Enter Employee ID");
+		text1 = new JTextField(03);
+		b1=new JButton("Display Data");
+		j2 = new JLabel("");
+		j3=new JLabel("");
+		j4=new JLabel("");
+
+
+		con.add(j1);
+		con.add(text1);
+		con.add(b1);
+		con.add(j2);
+		con.add(j3);
+		con.add(j4);
+			
+		b1.addActionListener(this);
+		addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent we)
+			{
+				System.exit(0);
+			}
+		});
+	}
+		
+	public void actionPerformed(ActionEvent e)
+	{
+		try{
+				
+			Class.forName("com.mysql.jdbc.Driver");
+				
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","Admin@123"); 
+				
+				int id = Integer.parseInt(text1.getText());
+				String str ="Select * from emp where id=?";
+				PreparedStatement sql = con.prepareStatement(str);
+				sql.setInt(1,id);	
+				ResultSet rs=sql.executeQuery();
+				
+				rs.first();
+				System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getInt(3));  
+				System.out.println("Data Fatched");
+
+				j2.setText("Employee Id : " + String.valueOf(rs.getInt(1)));
+				j3.setText("Employee Name : " + rs.getString(2));
+				j4.setText("Employee Age : " +String.valueOf(rs.getInt(3))); 
+			
+				con.close();  
+		}
+		catch(Exception p)
+		{
+			System.out.println(p);
+		}
+	}
+}
+
+-------------------------------------------------------------------------------
+//DeleteExample.java
+
+import java.sql.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+
+public class  DeleteExample 
+{
+	public static void main(String[] args) 
+	{
+		Demo d;
+		d=new Demo();
+	}
+}	
+	 
+class Demo extends JFrame implements ActionListener
+{
+	Container con;
+	JLabel j1,j2;
+	JTextField text1;
+	JButton b1;
+		
+	Demo()
+	{
+		setVisible(true);
+		setSize(500,100);
+		con = getContentPane();
+		//con=getContentPane();
+		con.setLayout(new GridLayout(2,2,5,5));
+					
+		j1=new JLabel("Enter Employee ID");
+		text1 = new JTextField(03);
+		b1=new JButton("Delete Data");
+		j2 = new JLabel("");
+		
+		con.add(j1);
+		con.add(text1);
+		con.add(b1);
+		con.add(j2);
+					
+		b1.addActionListener(this);
+		addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent we)
+			{
+				System.exit(0);
+			}
+		});
+	}
+		
+	public void actionPerformed(ActionEvent e)
+	{
+		try{
+				
+			Class.forName("com.mysql.jdbc.Driver");
+				
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","Admin@123"); 
+				
+				int id = Integer.parseInt(text1.getText());
+				String str ="DELETE FROM emp WHERE id = ?";
+				PreparedStatement sql = con.prepareStatement(str);
+				sql.setInt(1,id);	
+				sql.executeUpdate();
+				
+				
+				System.out.println("Data Deleted");
+
+				j2.setText("Employee data deleted with empid :" + id);
+				
+				con.close();  
+		}
+		catch(Exception p)
+		{
+			System.out.println(p);
+		}
+	}
+}
+
+----------------------------------------------------------------------
+//UpdateExample.java
+
+
+import java.sql.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+
+public class  UpdateExample 
+{
+	public static void main(String[] args) 
+	{
+		Demo d;
+		d=new Demo();
+	}
+}	
+	 
+class Demo extends JFrame implements ActionListener
+{
+	Container con;
+	JLabel j1,j2,j3;
+	JTextField text1,text2;
+	JButton b1;
+		
+	Demo()
+	{
+		setVisible(true);
+		setSize(350,150);
+		con = getContentPane();
+		//con=getContentPane();
+		con.setLayout(new GridLayout(5,2,5,5));
+		
+			
+		j1=new JLabel("Enter Employee ID");
+		text1 = new JTextField(03);
+		j2 = new JLabel("Enter Employee Age");	
+		text2 = new JTextField(03);	
+		b1=new JButton("Updatex Data");
+		
+		j3=new JLabel("");
+		
+
+
+		con.add(j1);
+		con.add(text1);
+		con.add(j2);		
+		con.add(text2);
+		con.add(b1);
+		con.add(j3);
+		
+			
+		b1.addActionListener(this);
+		addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent we)
+			{
+				System.exit(0);
+			}
+		});
+	}
+		
+	public void actionPerformed(ActionEvent e)
+	{
+		try{
+				
+			Class.forName("com.mysql.jdbc.Driver");
+				
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","Admin@123"); 
+				
+				int id = Integer.parseInt(text1.getText());
+				int age = Integer.parseInt(text2.getText());
+				String str ="update emp set age = ? where id = ?";
+				PreparedStatement sql = con.prepareStatement(str);
+				sql.setInt(2,id);
+				sql.setInt(1,age);	
+				sql.executeUpdate();
+				
+				j3.setText("Data Updated");
+				text1.setText("");
+				text2.setText("");
+				System.out.println("Data updated");
+				con.close();  
+		}
+		catch(Exception p)
+		{
+			System.out.println(p);
+		}
+	}
+}
+-------------------------------------------------------------
+
+
+
+
